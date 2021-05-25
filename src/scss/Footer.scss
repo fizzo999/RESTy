@@ -1,0 +1,16 @@
+$ftColor: #555;
+
+body {
+  background-color: beige;
+  footer {
+    h3 {
+      background: $ftColor;
+      color: white;
+      font-size: 18px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      padding: 24px 0;
+      margin-top: 600px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+$hdColor: black;
+
+body {
+  header {
+    h1 {
+      background: $hdColor;
+      color: white;
+      font-size: 32px;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      padding: 24px 0;
+    }
+  }
+}
