@@ -1,6 +1,8 @@
-# auth-api
+# RESTy react app - swagger clone
 
-express api server with basic and bearer authentication and AccessControlList using mongoDb bcrypt and base-64
+react app in 4 stages:
+
+- 1.) text input - transfered to state - printed on screen on same page - add to it GET POST PUT DELETE buttons and display the choice of button clicked on the same page
 
 ## Author: Fizzo Pannosch
 
@@ -8,78 +10,66 @@ express api server with basic and bearer authentication and AccessControlList us
 
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
-### <center> links and resources </center>
+## <center> links and resources </center>
 
-#### <center> [heroku deployed site](https://fizzo-auth-api.herokuapp.com/) </center>
+### <center> [sandbox deployed site](https://codesandbox.io/s/festive-leaf-t0stu) </center>
 
-![app is working on swagger](src/assets/1685.PNG)
-![app is working on swagger](src/assets/1686.PNG)
-![app is working on swagger](src/assets/1687.PNG)
-![app is working on swagger](src/assets/1688.PNG)
+<hr>
 
-#### <center> [github actions](https://github.com/fizzo999/auth-api/actions) </center>
+### <center> UML - simple </center>
 
-<!-- #### <center> [github pull request](https://github.com/fizzo999/server-deployment-practice/pull/1) </center> -->
+![UML - simple](public/assets/RESTy-1-UML.jpg)
 
-#### <center> [ci/cd - github](https://github.com/fizzo999/auth-api/actions/runs/791249707) </center>
+### <center> UML - including state </center>
+
+![UML - including state](public/assets/RESTy-2-UML.jpg)
+
+#### <center> [github link](https://github.com/fizzo999/RESTy) </center>
+
+#### <center> [github README.md](https://github.com/fizzo999/RESTy/blob/main/README.md) </center>
 
 #### <center> [merged pull request - github](https://github.com/fizzo999/auth-api/pull/2) </center>
 
-<!-- ![Cont Integration Cont Deploy](src/continuousIntegrationContinuousDepolyment002.png) -->
-
-## <center> UML DIAGRAM </center>
+<!-- ## <center> UML DIAGRAM </center>
 
 ![web request response cycle diagram 001](./src/assets/1693signup-UMI.PNG)
 ![web request response cycle diagram 002](./src/assets/1692signin-UMI.PNG)
-![web request response cycle diagram 003](./src/assets/1691users-UMI.PNG)
+![web request response cycle diagram 003](./src/assets/1691users-UMI.PNG) -->
 
 ## Overview
 
-building a basic express server with node.js. Writing our own tests with supertest and jest.
+react app in 4 stages:
+
+- 1.) text input - transfered to state - printed on screen on same page - add to it GET POST PUT DELETE buttons and display the choice of button clicked on the same page
 
 ## Setup
 
 git clone repo from github link:
-https://github.com/fizzo999/auth-api.git
-
-.env requirements
-PORT - Port Number
+https://github.com/fizzo999/RESTy.git
 
 npm install
-(to install dependencies: express, dotenv, supertest, jest)
+(to install dependencies: react, react-dom, react-scripts)
 
 Running the app
-npm start
-Endpoint: /clothes for a list of items and /clothes/1 for the 1st item
-Endpoint: /food for a list of food items and /food/1 for the 1st food item
+npm run start (will run react-scripts start)
 
-Returns Array of Objects in case of GET
-Returns success message in case of POST
-Returns the updated object in case of PUT
-Returns success message in case of DELETE
-
-Tests
-Unit Tests: npm run test
+<!-- Tests
+Unit Tests: npm run test -->
 
 ## Architecture
 
-node.js based server that uses express library and dotenv package
-tests performed with jest and supertest
+react based jsx frontend that displays user input (as a runner up to server REST / CRUD request methods (POST, GET, PUT, DELETE))
+
+<!-- tests performed with jest and supertest -->
 
 ## Change Log
 
-04-28-2021 10:59pm - Application now has a fully-functional express server, with POST route ('/signup') and ('/signin') endpoints, mongodb working locally on my own machine. Also have AccessControlList implemented by meregin the two starter codes and changing the v2 routes (exact copy of v1 routes) to add middleware function call with (capabilities) as argument - thereby checking the token encrypted sign-in authorization status (user, editor or admin) against the virtual db field of .capabilities of that specific user that just signed back in.
+05-24-2021 9:59pm - Application now has a fully-functional frontend displaying user input plus choice of REST method - buttons to show up as h2/h3 on the page - all managed through state - transfered up through use of a class method/ function.
 
 ## Credits and Collaborations
 
-Number and name of feature: setup file structure, write server.js, index,js, 404.js, 500.js, test.js.yml - repo on github and deploy to heroku
-Estimate of time needed to complete: 2 hours
-Start time: 4:00 pm
-Finish time: 7:00 pm
-Actual time needed to complete: 3 hours
-
-Number and name of feature: food routes and data model, bug fix, readme.md
-Estimate of time needed to complete: 2 hours
-Start time: 8:00 pm
-Finish time: 11:00 pm
-Actual time needed to complete: 3 hours
+- Number and name of feature: setup file structure, write index.html, index,js, App.js, Form.js, Header.js, Footer.js PLUS all the scss files (for each file)- repo on github and deploy to sandbox
+- Estimate of time needed to complete: 2 hours
+- Start time: 4:00 pm
+- Finish time: 8:00 pm
+- Actual time needed to complete: 4 hours
