@@ -21,8 +21,10 @@ class Form extends Component {
           <button onClick={this.props.handleClick2} className="methodBtn4" value="DELETE" >DELETE</button>
           <button onClick={this.props.handleClick} >Click here to submit</button>
         </form>
-        {this.props.show && (<h2 className={this.props.methodClass}>{this.props.method}</h2>)}
-        <h3>requested URL: {this.props.show && this.props.restyInput}</h3>
+        <div className="container1">
+          {this.props.show && (<h2 className={this.props.methodClass}>{this.props.method}</h2>)}
+          <h3>requested URL: {this.props.show && this.props.restyInput}</h3>
+        </div>
       </React.Fragment>
     );
   }
