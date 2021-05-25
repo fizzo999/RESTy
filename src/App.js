@@ -3,6 +3,7 @@ import './scss/style.scss';
 import Header from './Header.js';
 import Footer from './Footer.js';
 import Form from './Form.js';
+import Results from './Results.js';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +12,9 @@ class App extends React.Component {
       restyInput: 'please type an http address in the form above, select the method and hit GO!',
       method: '',
       show: false,
-      methodClass: ''
+      methodClass: '',
+      count:0,
+      results: []
     };
   }
 
@@ -34,12 +37,18 @@ class App extends React.Component {
     this.setState({ method, methodClass });
   }
 
+  handleForm = (count, results) => {
+    this.setState({ count, results });
+    console.log('here is the this.state.results ==============>>>>>>>>>', this.state.results);
+  }
+
 
   render() {
     return (
       <div>
         <Header />
-        <Form handleChange={this.handleChange} handleClick={this.handleClick} handleClick2={this.handleClick2} method={this.state.method} restyInput={this.state.restyInput} show={this.state.show} methodClass={this.state.methodClass}/>
+        <Form handleChange={this.handleChange} handleClick={this.handleClick} handleClick2={this.handleClick2} method={this.state.method} restyInput={this.state.restyInput} show={this.state.show} methodClass={this.state.methodClass} handler={this.handleForm}/>
+        <Results results={this.state.results} count={this.state.count}/>
         <Footer />
       </div>
     );
