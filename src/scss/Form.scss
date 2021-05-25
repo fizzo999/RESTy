@@ -1,0 +1,54 @@
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+button.methodBtn,
+input,
+button {
+  padding: 12px 32px;
+  border-radius: 12px;
+  margin: 0 24px;
+}
+
+button.methodBtn1:focus,
+h2.methodBtn1 {
+  background-color: blue;
+  color: white;
+  font-weight: 600;
+}
+button.methodBtn2:focus,
+h2.methodBtn2 {
+  background-color: green;
+  color: white;
+  font-weight: 600;
+}
+button.methodBtn3:focus,
+h2.methodBtn3 {
+  background-color: orange;
+  color: white;
+  font-weight: 600;
+}
+button.methodBtn4:focus,
+h2.methodBtn4 {
+  background-color: red;
+  color: white;
+  font-weight: 600;
+}
+h2,
+h3 {
+  text-align: center;
+}
+
+h2 {
+  border: 3px solid black;
+  border-radius: 12px;
+  padding: 12px 32px;
+}
+
+h3 {
+  font-size: 24px;
+  padding: 12px 32px;
+}
