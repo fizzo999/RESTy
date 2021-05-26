@@ -14,6 +14,8 @@ react app in 4 stages:
 
 ### <center> [sandbox deployed site](https://codesandbox.io/s/festive-leaf-t0stu) </center>
 
+#### <center> [netlify deployed link](https://app.netlify.com/sites/nifty-bartik-ec9bd4/deploys/60adc328de636832fc8357ac) </center>
+
 <hr>
 
 ### <center> UML - simple </center>
