@@ -63,7 +63,7 @@ npm run test
 
 react based jsx frontend that displays user input (as a runner up to server REST / CRUD request methods (POST, GET, PUT, DELETE))
 
-<!-- tests performed with jest and supertest -->
+tests performed with jest through react-scripts
 
 ## Change Log
 
