@@ -10,11 +10,11 @@ react app in 4 stages:
 
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
-## <center> links and resources </center>
+## links and resources
 
-### <center> [sandbox deployed site](https://codesandbox.io/s/festive-leaf-t0stu) </center>
+## <center> [sandbox deployed site](https://codesandbox.io/s/festive-leaf-t0stu) </center>
 
-#### <center> [netlify deployed link](https://app.netlify.com/sites/nifty-bartik-ec9bd4/deploys/60adc328de636832fc8357ac) </center>
+## <center> [netlify deployed link](https://app.netlify.com/sites/nifty-bartik-ec9bd4/deploys/60adc328de636832fc8357ac) </center>
 
 <hr>
 
@@ -71,6 +71,8 @@ tests performed with jest through react-scripts
 
 05-24-2021 9:59pm - Application now has a fully-functional frontend displaying user input plus choice of REST method - buttons to show up as h2/h3 on the page - all managed through state - transfered up through use of a class method/ function.
 
+05-25-2021 9:59pm - phase 2 completed - ability to GET requests and display JSON data that comes back - also tests done - also deploy through Netlify (and github started) and sandbox updated
+
 ## Credits and Collaborations
 
 - Number and name of feature: setup file structure, write index.html, index,js, App.js, Form.js, Header.js, Footer.js PLUS all the scss files (for each file)- repo on github and deploy to sandbox
@@ -78,3 +80,9 @@ tests performed with jest through react-scripts
 - Start time: 4:00 pm
 - Finish time: 8:00 pm
 - Actual time needed to complete: 4 hours
+
+- Number and name of feature: phase 2 completed - ability to GET requests and display JSON data that comes back - also tests done - also deploy through Netlify (and github started) and sandbox updated
+- Estimate of time needed to complete: 4 hours
+- Start time: 3:00 pm
+- Finish time: 10:00 pm
+- Actual time needed to complete: 6 hours
