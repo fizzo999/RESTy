@@ -12,15 +12,13 @@ class Form extends Component {
     e.preventDefault();
     this.props.handleClick(e);
     // let raw = await fetch('https://swapi.dev/api/people/');
-    let raw = await fetch(this.props.restyInput);
+    let requestOptions = {
+      method: this.props.method,
+      headers: { 'Content-Type': 'application/json' }
+    };
+    let raw = await fetch(this.props.restyInput, requestOptions);
     let data = await raw.json();
-    let count = data.count;
-
-    let people = data.results.reduce((list, person) => {
-      list[person.name] = person.url;
-      return list;
-    }, {});
-    this.props.handler(count, people);
+    this.props.handler(data.results);
 
   }
   // method=this.props.method

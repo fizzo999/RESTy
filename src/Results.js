@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactJson from 'react-json-view';
 
 export class Results extends Component {
   constructor(props) {
@@ -9,16 +10,8 @@ export class Results extends Component {
 
   render() {
     return (
-      <div className="apiResults">
-        <ul>
-          {Object.keys(this.props.results).map((item, idx) => {
-            return (
-              <li key={idx}>
-                <a href={this.props.results[item]} >{item}</a>
-              </li>
-            );
-          })}
-        </ul>
+      <div >
+        <ReactJson src={this.props.results} theme="summerfruit:inverted"/>
       </div>
     );
   }

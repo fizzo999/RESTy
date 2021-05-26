@@ -13,7 +13,6 @@ class App extends React.Component {
       method: '',
       show: false,
       methodClass: '',
-      count:0,
       results: []
     };
   }
@@ -37,8 +36,8 @@ class App extends React.Component {
     this.setState({ method, methodClass });
   }
 
-  handleForm = (count, results) => {
-    this.setState({ count, results });
+  handleForm = (results) => {
+    this.setState({ results });
     console.log('here is the this.state.results ==============>>>>>>>>>', this.state.results);
   }
 
@@ -48,7 +47,7 @@ class App extends React.Component {
       <div>
         <Header />
         <Form handleChange={this.handleChange} handleClick={this.handleClick} handleClick2={this.handleClick2} method={this.state.method} restyInput={this.state.restyInput} show={this.state.show} methodClass={this.state.methodClass} handler={this.handleForm}/>
-        <Results results={this.state.results} count={this.state.count}/>
+        <Results results={this.state.results}/>
         <Footer />
       </div>
     );
