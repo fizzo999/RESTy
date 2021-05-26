@@ -53,8 +53,11 @@ npm install
 Running the app
 npm run start (will run react-scripts start)
 
-<!-- Tests
-Unit Tests: npm run test -->
+## Tests
+
+npm run test
+
+- will run the command "react-scripts test --verbose --coverage"
 
 ## Architecture
 
