@@ -5,10 +5,13 @@
   "main": "index.js",
   "scripts": {
     "start": "react-scripts start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "react-scripts test --verbose --coverage"
   },
   "license": "ISC",
   "dependencies": {
+    "@testing-library/jest-dom": "^5.12.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^13.1.9",
     "axios": "^0.21.1",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
