@@ -1,4 +1,5 @@
-{ "homepage":"http://fizzo999.github.io/RESTy",
+{
+  "homepage": "http://fizzo999.github.io/RESTy",
   "name": "RESTy",
   "version": "1.0.0",
   "description": "express api server with basic and bearer authentication and AccessControlList using mongoDb bcrypt and base-64",
@@ -8,11 +9,11 @@
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "test": "react-scripts test --verbose --coverage",
-    "build":"react-scripts build",
-    "eject":"react-scripts eject"
+    "build": "react-scripts build",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends":"react-app"
+    "extends": "react-app"
   },
   "license": "ISC",
   "dependencies": {
@@ -23,6 +24,7 @@
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-if": "^4.0.1",
     "react-json-view": "^1.21.3",
     "react-scripts": "^4.0.3"
   },
