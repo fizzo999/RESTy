@@ -6,13 +6,13 @@ react app in 4 stages:
 
 ## Author: Fizzo Pannosch
 
-**Version**: 1.0.0
+**Version**: 1.2.0
 
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
 ## links and resources
 
-## <center> [sandbox deployed site](https://codesandbox.io/s/festive-leaf-t0stu) </center>
+## <center> [sandbox deployed site](https://t0stu.csb.app/) </center>
 
 ## <center> [netlify deployed link](https://app.netlify.com/sites/nifty-bartik-ec9bd4/deploys/60adc328de636832fc8357ac) </center>
 
@@ -86,3 +86,9 @@ tests performed with jest through react-scripts
 - Start time: 3:00 pm
 - Finish time: 10:00 pm
 - Actual time needed to complete: 6 hours
+
+- Number and name of feature: phase 3 - half way through it
+- Estimate of time needed to complete: 4 hours
+- Start time: 6:00 pm
+- Finish time: 11:00 pm
+- Actual time needed to complete: 5 hours
