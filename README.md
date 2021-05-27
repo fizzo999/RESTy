@@ -14,7 +14,7 @@ react app in 4 stages:
 
 ## <center> [sandbox deployed site](https://t0stu.csb.app/) </center>
 
-## <center> [netlify deployed link](https://app.netlify.com/sites/nifty-bartik-ec9bd4/deploys/60adc328de636832fc8357ac) </center>
+## <center> [netlify deployed link](https://60adc328de636832fc8357ac--nifty-bartik-ec9bd4.netlify.app/) </center>
 
 <hr>
 
