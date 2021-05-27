@@ -13,7 +13,8 @@ class App extends React.Component {
       method: '',
       show: false,
       methodClass: '',
-      results: []
+      results: [],
+      bodyFromFunction: ''
     };
   }
 
@@ -23,14 +24,17 @@ class App extends React.Component {
     // this.setState({ restyInput: restyInput });
   }
 
-  handleClick = e => {
+  handleClick = async (e, bodyFromFunction )=> {
     e.preventDefault();
     this.setState({ show: true });
+    await this.setState({ bodyFromFunction });
+    // console.log('second try =========>>>>>>>>>>>>>>>>', bodyFromFunction);
+    // console.log('and the STATE try =========>>>>>>>>>>>>>>>>', this.state);
   }
 
   handleClick2 = e => {
     e.preventDefault();
-    console.log('HERE IS THE BUTTON VALUE OF CLASSNAME========>>>>>>>>', e.target.className);
+    // console.log('HERE IS THE BUTTON VALUE OF CLASSNAME========>>>>>>>>', e.target.className);
     let method = e.target.value;
     let methodClass = e.target.className;
     this.setState({ method, methodClass });
@@ -38,7 +42,7 @@ class App extends React.Component {
 
   handleForm = (results) => {
     this.setState({ results });
-    console.log('here is the this.state.results ==============>>>>>>>>>', this.state.results);
+    // console.log('here is the this.state.results ==============>>>>>>>>>', this.state.results);
   }
 
 
@@ -46,8 +50,8 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Form handleChange={this.handleChange} handleClick={this.handleClick} handleClick2={this.handleClick2} method={this.state.method} restyInput={this.state.restyInput} show={this.state.show} methodClass={this.state.methodClass} handler={this.handleForm}/>
-        <Results results={this.state.results}/>
+        <Form handleChange={this.handleChange} handleClick={this.handleClick} handleClick2={this.handleClick2} method={this.state.method} restyInput={this.state.restyInput} show={this.state.show} methodClass={this.state.methodClass} handler={this.handleForm} secondaryInput={this.state.secondaryInput}/>
+        <Results restyInput={this.state.restyInput} method={this.state.method} body={this.state.bodyFromFunction} results={this.state.results}/>
         <Footer />
       </div>
     );
