@@ -6,7 +6,12 @@ class Form extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      body:''
+      body: '',
+      headers: '',
+      method: '',
+      status: '',
+      error: '',
+      results: {}
     };
   }
   handleSecondarySubmit = (e) => {
@@ -18,22 +23,39 @@ class Form extends Component {
   handleSubmit = async (e) => {
     e.preventDefault();
     this.props.handleClick(e, this.state.body);
+    this.setState({ method: this.props.method});
+
     // let raw = await fetch('https://swapi.dev/api/people/');
+
     let requestOptions = {
       method: this.props.method,
-      headers: { 'Content-Type': 'application/json' }
+      headers: { 'Content-Type': 'application/json' },
     };
+
     if(this.props.method === 'POST' || this.props.method === 'PUT') {
       requestOptions.body = this.state.body;
     }
-    let raw = await fetch(this.props.restyInput, requestOptions);
-    let data = await raw.json();
-    this.props.handler(data.results);
+
+    try {
+      let raw = await fetch(this.props.url, requestOptions);
+      // await console.log('HERE IS RAW:', raw);
+      let status = raw.status;
+      let headers = raw.headers;
+      let data = await raw.json();
+      await this.setState({ results: data.results, headers: headers, status: status});
+      await (this.state.method === 'POST' || this.state.method === 'PUT' ? this.props.handleHistory(this.props.url, this.state.method, this.state.body) : this.props.handleHistory(this.props.url, this.state.method));
+    } catch(err) {
+      console.log('HERE IS ERROR:', err.message);
+      this.setState({ error: err.message});
+    }
+
+    await this.props.handler(this.state.results);
 
   }
   // method=this.props.method
-  // restyInput=this.props.restyInput
+  // url=this.props.url
   render() {
+    // console.log('HERE IS THAT STATE', this.state);
     return (
       <React.Fragment>
         <form>
@@ -55,7 +77,7 @@ class Form extends Component {
         </form>
         <div className="container1">
           {this.props.show && (<h2 className={this.props.methodClass}>{this.props.method}</h2>)}
-          <h3>requested URL: {this.props.show && this.props.restyInput}</h3>
+          <h3>requested URL: {this.props.show && this.props.url}</h3>
         </div>
       </React.Fragment>
     );

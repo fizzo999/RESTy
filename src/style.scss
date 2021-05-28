@@ -1,0 +1,16 @@
+@import './scss/_vars.scss';
+@import './scss/_reset.scss';
+@import './scss/_base.scss';
+@import './scss/_layout.scss';
+
+body {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+// #root {
+//   display: grid;
+//   grid-template-columns: repeat(3, 3fr);
+//   grid-auto-rows: minmax(100px auto);
+//   gap: 3rem;
+// }

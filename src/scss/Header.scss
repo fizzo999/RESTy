@@ -1,14 +1,30 @@
 $hdColor: black;
 
-body {
-  header {
-    h1 {
-      background: $hdColor;
-      color: white;
-      font-size: 32px;
-      font-family: Arial, Helvetica, sans-serif;
-      text-align: center;
-      padding: 24px 0;
-    }
+header {
+  h1 {
+    background: #333;
+    color: white;
+    font-size: 3vw;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 2vw 0;
+  }
+  nav ul {
+    display: flex;
+    justify-content: center;
+  }
+
+  nav ul li {
+    margin: 24px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    font-size: 2vw;
+    font-family: Arial, Helvetica, sans-serif;
+    color: blue;
+  }
+  nav ul li a:focus {
+    color: red;
   }
 }
