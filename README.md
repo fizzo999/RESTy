@@ -73,6 +73,8 @@ tests performed with jest through react-scripts
 
 05-25-2021 9:59pm - phase 2 completed - ability to GET requests and display JSON data that comes back - also tests done - also deploy through Netlify (and github started) and sandbox updated
 
+05-27-2021 109:59pm - phase 4 - 75% completed - ability to navigate to different pages; ability to make GET POST PUT DELETE requests; have search results stored in state AND local storage; have search results (url, method, body) stored and retrieved frrom local storage, display a button to that stored search; re route to the home page and set the results into state - ready to search again deploys to Netlify and sandbox updated.
+
 ## Credits and Collaborations
 
 - Number and name of feature: setup file structure, write index.html, index,js, App.js, Form.js, Header.js, Footer.js PLUS all the scss files (for each file)- repo on github and deploy to sandbox
@@ -92,3 +94,9 @@ tests performed with jest through react-scripts
 - Start time: 6:00 pm
 - Finish time: 11:00 pm
 - Actual time needed to complete: 5 hours
+
+- Number and name of feature: phase 4 - 75% way through it
+- Estimate of time needed to complete: 4 hours
+- Start time: 3:00 pm
+- Finish time: 10:00 pm
+- Actual time needed to complete: 7 hours
