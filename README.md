@@ -4,6 +4,10 @@ react app in 4 stages:
 
 - 1.) text input - transfered to state - printed on screen on same page - add to it GET POST PUT DELETE buttons and display the choice of button clicked on the same page
 
+- 3.) add if module conditional, start on history readout with individual buttons, so user can quickly search same search again; add modal with spinner (work in progress, not done yet)
+
+- 4.) add router - based pages (home, history and help); store the results in local storage for persistence; retrieve the searches (url, method, body) from local storage; update state so onClick of a button can re execute search
+
 ## Author: Fizzo Pannosch
 
 **Version**: 1.2.0
