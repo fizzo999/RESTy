@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { If, Then } from 'react-if';
 import './scss/Form.scss';
+import axios from 'axios';
 
 class Form extends Component {
   constructor(props) {
@@ -11,8 +12,12 @@ class Form extends Component {
       method: '',
       status: '',
       error: '',
-      results: {}
+      results: {},
+      loading: false
     };
+  }
+  toggleLoading = () => {
+    this.setState({ loading: !this.state.loading });
   }
   handleSecondarySubmit = (e) => {
     e.preventDefault();
@@ -22,6 +27,9 @@ class Form extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    this.toggleLoading();
+    this.props.toggleLoading();
+    console.log('yes WE ARE TOGGLING that loading now');
     this.props.handleClick(e, this.state.body);
     this.setState({ method: this.props.method});
 
@@ -29,26 +37,41 @@ class Form extends Component {
 
     let requestOptions = {
       method: this.props.method,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'request.mode':'no-cors' },
     };
 
     if(this.props.method === 'POST' || this.props.method === 'PUT') {
-      requestOptions.body = this.state.body;
+      requestOptions.body = JSON.stringify(this.state.body);
     }
 
     try {
-      let raw = await fetch(this.props.url, requestOptions);
-      // await console.log('HERE IS RAW:', raw);
-      let status = raw.status;
-      let headers = raw.headers;
-      let data = await raw.json();
-      await this.setState({ results: data.results, headers: headers, status: status});
-      await (this.state.method === 'POST' || this.state.method === 'PUT' ? this.props.handleHistory(this.props.url, this.state.method, this.state.body) : this.props.handleHistory(this.props.url, this.state.method));
+      // let raw = await fetch(this.props.url, requestOptions);
+      axios({
+        method: this.props.method,
+        url: this.props.url,
+        data: this.state.method === 'POST' || this.state.method === 'PUT' ? this.state.body : ''
+      }).then(response => {
+        this.props.handler(response.data);
+        this.setState({ results: response.data.results, headers: response.headers, status: response.status});
+      }).then(this.state.method === 'POST' || this.state.method === 'PUT' ? this.props.handleHistory(this.props.url, this.state.method, this.state.body) : this.props.handleHistory(this.props.url, this.state.method));
+
+      // let status = await raw.status;
+      // let headers = await raw.headers;
+      // let data = await raw.json();
+      // await this.setState({ results: data.results, headers: headers, status: status});
+      // await (this.state.method === 'POST' || this.state.method === 'PUT' ? this.props.handleHistory(this.props.url, this.state.method, this.state.body) : this.props.handleHistory(this.props.url, this.state.method));
     } catch(err) {
       console.log('HERE IS ERROR:', err.message);
+      console.log('HERE IS ERROR STATUS:', this.state.status);
       this.setState({ error: err.message});
     }
-
+    // setTimeout()
+    this.toggleLoading();
+    // this.props.toggleLoading();
+    console.log('yes WE ARE TOGGLING that loading now');
     await this.props.handler(this.state.results);
 
   }
@@ -61,7 +84,7 @@ class Form extends Component {
         <form>
           <div className="firstFormDiv">
             <input type="text" onChange={this.props.handleChange} ></input>
-            <button onClick={this.props.handleClick2} className="methodBtn1" value="GET" >GET</button>
+            <button onClick={this.props.handleClick2} className="methodBtn1" value="GET" style={{button:focus}}>GET</button>
             <button onClick={this.props.handleClick2} className="methodBtn2" value="POST" >POST</button>
             <button onClick={this.props.handleClick2} className="methodBtn3" value="PUT" >PUT</button>
             <button onClick={this.props.handleClick2} className="methodBtn4" value="DELETE" >DELETE</button>

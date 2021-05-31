@@ -10,7 +10,7 @@ react app in 4 stages:
 
 ## Author: Fizzo Pannosch
 
-**Version**: 1.2.0
+**Version**: 1.4.0
 
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
