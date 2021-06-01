@@ -1,34 +1,26 @@
 import React, { Component } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
 import ReactJson from 'react-json-view';
 import { If, Then, Else } from 'react-if';
 // let Loader = require('react-loaders').Loader;
 import './scss/Results.scss';
+import './scss/Form.scss';
 
 export class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: true
     };
   }
-  toggleLoading = () => {
-    this.setState({ loading: false});
-    this.props.toggleLoading();
-  }
-
   render() {
-    this.toggleLoading;
-    console.log('here we are in results', this.state.loading);
-    console.log('here we are in results', this.props.loading);
     return (
       <div className="resultsContainer">
         <If condition={this.props.loading}>
           <Then>
-            <Modal show={this.props.loading} onHide={this.toggleLoading} >
+            <Modal show={this.props.loading} onHide={this.props.toggleLoading} >
               <Modal.Dialog>
-                <Modal.Header closeButton />
                 <Modal.Body>
                   <Card style={{ width: '25rem'}}>
                     <Card.Img src={'https://bestcityscape.com/wp-content/uploads/2019/03/Santorini-skyline-night-90481.jpg'} />
@@ -38,6 +30,11 @@ export class Results extends Component {
                     </Card.Body>
                   </Card>
                 </Modal.Body>
+                <Modal.Footer>
+                  <Button variant="primary" onClick={this.props.toggleLoading}>
+                    close
+                  </Button>
+                </Modal.Footer>
               </Modal.Dialog>
             </Modal>
           </Then>
