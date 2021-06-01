@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { If, Then } from 'react-if';
 import './scss/Form.scss';
+import axios from 'axios';
 
 class Form extends Component {
   constructor(props) {
@@ -8,9 +9,6 @@ class Form extends Component {
     this.state = {
       body: '',
       headers: '',
-      method: '',
-      status: '',
-      error: '',
       results: {}
     };
   }
@@ -22,50 +20,67 @@ class Form extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+    if (!this.props.url) {
+      alert('please type a valid URL');
+      return;
+    }
+    this.props.toggleLoading();
+    console.log('yes WE ARE TOGGLING that loading now');
     this.props.handleClick(e, this.state.body);
-    this.setState({ method: this.props.method});
-
     // let raw = await fetch('https://swapi.dev/api/people/');
-
     let requestOptions = {
       method: this.props.method,
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'request.mode':'no-cors' },
     };
 
     if(this.props.method === 'POST' || this.props.method === 'PUT') {
-      requestOptions.body = this.state.body;
+      requestOptions.body = JSON.stringify(this.state.body);
     }
+
+
 
     try {
-      let raw = await fetch(this.props.url, requestOptions);
-      // await console.log('HERE IS RAW:', raw);
-      let status = raw.status;
-      let headers = raw.headers;
-      let data = await raw.json();
-      await this.setState({ results: data.results, headers: headers, status: status});
-      await (this.state.method === 'POST' || this.state.method === 'PUT' ? this.props.handleHistory(this.props.url, this.state.method, this.state.body) : this.props.handleHistory(this.props.url, this.state.method));
+      // let raw = await fetch(this.props.url, requestOptions);
+      axios({
+        method: this.props.method,
+        url: this.props.url,
+        data: this.props.method === 'POST' || this.props.method === 'PUT' ? this.state.body : ''
+      }).then(response => {
+        // this.props.handler(response.data);
+        this.props.handler(response);
+        // this.setState({ results: response.data.results, headers: response.headers, status: response.status});
+      }).then(this.props.method === 'POST' || this.props.method === 'PUT' ? this.props.handleHistory(this.props.url, this.props.method, this.state.body) : this.props.handleHistory(this.props.url, this.props.method));
+
+      // let status = await raw.status;
+      // let headers = await raw.headers;
+      // let data = await raw.json();
+      // await this.setState({ results: data.results, headers: headers, status: status});
+      // await (this.props.method === 'POST' || this.props.method === 'PUT' ? this.props.handleHistory(this.props.url, this.props.method, this.props.body) : this.props.handleHistory(this.props.url, this.props.method));
     } catch(err) {
       console.log('HERE IS ERROR:', err.message);
-      this.setState({ error: err.message});
+      this.props.handleError(err);
+      this.props.toggleLoading();
+      console.log('yes WE ARE TOGGLING that loading now DUE TO ERROR');
     }
-
-    await this.props.handler(this.state.results);
-
   }
-  // method=this.props.method
-  // url=this.props.url
+  componentDidMount(){
+    let btn1EL = document.getElementById('btn1');
+    btn1EL.focus();
+  }
   render() {
-    // console.log('HERE IS THAT STATE', this.state);
     return (
       <React.Fragment>
         <form>
           <div className="firstFormDiv">
-            <input type="text" onChange={this.props.handleChange} ></input>
-            <button onClick={this.props.handleClick2} className="methodBtn1" value="GET" >GET</button>
-            <button onClick={this.props.handleClick2} className="methodBtn2" value="POST" >POST</button>
-            <button onClick={this.props.handleClick2} className="methodBtn3" value="PUT" >PUT</button>
-            <button onClick={this.props.handleClick2} className="methodBtn4" value="DELETE" >DELETE</button>
-            <button onClick={this.handleSubmit} >Click here to submit</button>
+            <input type="text" onChange={this.props.handleChange} placeholder={this.props.formFromHistory}></input>
+            <button onClick={this.props.handleClick2} className="methodBtn1" value="GET" id="btn1">GET</button>
+            <button onClick={this.props.handleClick2} className="methodBtn2" value="POST" id="btn2" >POST</button>
+            <button onClick={this.props.handleClick2} className="methodBtn3" value="PUT" id="btn3" >PUT</button>
+            <button onClick={this.props.handleClick2} className="methodBtn4" value="DELETE" id="btn4" >DELETE</button>
+            <button onClick={this.handleSubmit} className="methodBtn5">Click here to submit</button>
           </div>
           <If condition={this.props.method === 'POST' || this.props.method === 'PUT'} >
             <Then>

@@ -10,7 +10,7 @@ react app in 4 stages:
 
 ## Author: Fizzo Pannosch
 
-**Version**: 1.2.0
+**Version**: 1.4.0
 
 <!-- (increment the patch/fix version number if you make more commits past your first submission) -->
 
@@ -77,7 +77,9 @@ tests performed with jest through react-scripts
 
 05-25-2021 9:59pm - phase 2 completed - ability to GET requests and display JSON data that comes back - also tests done - also deploy through Netlify (and github started) and sandbox updated
 
-05-27-2021 109:59pm - phase 4 - 75% completed - ability to navigate to different pages; ability to make GET POST PUT DELETE requests; have search results stored in state AND local storage; have search results (url, method, body) stored and retrieved frrom local storage, display a button to that stored search; re route to the home page and set the results into state - ready to search again deploys to Netlify and sandbox updated.
+05-27-2021 109:59pm - phase 4 - 75% completed - ability to navigate to different pages; ability to make GET POST PUT DELETE requests; have search results stored in state AND local storage; have search results (url, method, body) stored and retrieved from local storage, display a button to that stored search; re route to the home page and set the results into state - ready to search again deploys to Netlify and sandbox updated.
+
+06-01-2021 1:00am - phase 4 - 100% completed - local storage and state issues fixed (now only new and unique values are added to local storage and state.history); modal pop up implemented (instead of a boring spinner); submit button styled with keyframes, modal close button styled with keyframes; manual testing; history works; history click now prepopulates the homepage form - just click on submit to re submit API call;
 
 ## Credits and Collaborations
 
@@ -103,4 +105,10 @@ tests performed with jest through react-scripts
 - Estimate of time needed to complete: 4 hours
 - Start time: 3:00 pm
 - Finish time: 10:00 pm
+- Actual time needed to complete: 7 hours
+
+- Number and name of feature: phase 4 - 100% way through it: local storage issues fixed, state issues fixed, history click issues fixed, modal fixed, added keyframes animation to search button
+- Estimate of time needed to complete: 4 hours
+- Start time: 6:00 pm
+- Finish time: 1:00 am
 - Actual time needed to complete: 7 hours

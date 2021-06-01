@@ -32,11 +32,18 @@ h2.methodBtn3 {
   font-weight: 600;
 }
 button.methodBtn4:focus,
-h2.methodBtn4 {
+h2.methodBtn4,
+button.methodBtn5 {
   background-color: red;
   color: white;
   font-weight: 600;
 }
+button.methodBtn5 {
+  animation-duration: 3s;
+  animation-name: submitBtn;
+  animation-iteration-count: infinite;
+}
+
 h2,
 h3 {
   text-align: center;
@@ -69,4 +76,19 @@ div.secondFormDiv textarea {
 div.container1 {
   width: 1000px;
   margin: 24px auto;
+}
+
+@keyframes submitBtn {
+  from {
+    background-color: red;
+    color: white;
+  }
+  50% {
+    background-color: white;
+    color: red;
+  }
+  to {
+    background-color: red;
+    color: white;
+  }
 }
